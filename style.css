@@ -1,0 +1,139 @@
+/* style.css */
+
+/* Custom styles for Range Sliders */
+/* Tailwind's `accent-{color}` class handles the thumb color, but we'll refine the track and thumb shape */
+
+/* Base slider styles */
+.custom-slider {
+    -webkit-appearance: none; /* Override default browser styles */
+    appearance: none;
+    width: 100%;
+    height: 8px; /* Track height */
+    border-radius: 5px; /* Rounded track */
+    background: #e0e7ed; /* Light, calm track color */
+    outline: none; /* Remove blue outline on focus */
+    opacity: 0.9; /* Slightly transparent track */
+    transition: opacity .2s;
+}
+
+.custom-slider:hover {
+    opacity: 1;
+}
+
+/* Thumb for Webkit (Chrome, Safari) */
+.custom-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px; /* Thumb size */
+    height: 20px;
+    border-radius: 50%; /* Circular thumb */
+    background: #8b5cf6; /* A vibrant purple for the thumb */
+    cursor: grab;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Soft shadow */
+    border: 2px solid #ffffff; /* White border for a clean look */
+    transition: background 0.3s ease, transform 0.1s ease;
+}
+
+.custom-slider::-webkit-slider-thumb:active {
+    cursor: grabbing;
+    transform: scale(1.1); /* Slight pop on active */
+}
+
+/* Thumb for Firefox */
+.custom-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #8b5cf6;
+    cursor: grab;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border: 2px solid #ffffff;
+    transition: background 0.3s ease, transform 0.1s ease;
+}
+
+.custom-slider::-moz-range-thumb:active {
+    cursor: grabbing;
+    transform: scale(1.1);
+}
+
+/* Color accents for specific sliders (using accent-color property) */
+#warmth-slider::-webkit-slider-thumb {
+    background: #f87171; /* Reddish for warmth */
+}
+#warmth-slider::-moz-range-thumb {
+    background: #f87171;
+}
+
+#formality-slider::-webkit-slider-thumb {
+    background: #60a5fa; /* Blueish for formality */
+}
+#formality-slider::-moz-range-thumb {
+    background: #60a5fa;
+}
+
+#poetic-level-slider::-webkit-slider-thumb {
+    background: #34d399; /* Greenish for poetic */
+}
+#poetic-level-slider::-moz-range-thumb {
+    background: #34d399;
+}
+
+
+/* Custom Checkbox Styles */
+.custom-checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.95rem; /* Slightly smaller text */
+    color: #4a5568; /* Darker gray for text */
+    user-select: none; /* Prevent text selection */
+}
+
+/* Hide the default browser checkbox */
+.custom-checkbox {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Create the custom checkbox visual */
+.custom-checkbox + span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px; /* Size of the custom box */
+    height: 20px;
+    border: 2px solid #a78bfa; /* Border color from your palette */
+    border-radius: 6px; /* Rounded corners for the box */
+    background-color: #ffffff;
+    margin-right: 8px; /* Space between box and label text */
+    transition: all 0.2s ease-in-out; /* Smooth transitions */
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); /* Subtle inner shadow */
+}
+
+/* Style for the checkmark inside the box */
+.custom-checkbox:checked + span::before {
+    content: '✓'; /* Unicode checkmark */
+    font-size: 1rem;
+    color: #ffffff; /* White checkmark */
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2); /* Slight shadow for depth */
+}
+
+/* When the checkbox is checked */
+.custom-checkbox:checked + span {
+    background-color: #8b5cf6; /* Fill with a vibrant purple */
+    border-color: #8b5cf6; /* Match border color */
+    box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.3), inset 0 1px 3px rgba(0,0,0,0.2); /* Soft outer glow */
+}
+
+/* Focus style for accessibility */
+.custom-checkbox:focus + span {
+    box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.5); /* Stronger glow on focus */
+}
+
+/* Hover effect for the custom checkbox */
+.custom-checkbox-label:hover .custom-checkbox + span {
+    border-color: #a78bfa; /* Slightly darker border on hover */
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.15), 0 0 0 2px rgba(167, 139, 250, 0.2);
+}
